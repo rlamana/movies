@@ -11,3 +11,7 @@ RUN yarn build
 FROM nginx:alpine
 COPY --from=dev /src/dist /usr/share/nginx/html
 EXPOSE 80
+
+FROM node:14
+RUN echo Hola
+RUN exit 1
