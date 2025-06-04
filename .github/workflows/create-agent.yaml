@@ -13,6 +13,7 @@ jobs:
       env:
         OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
         OKTETO_CONTEXT: ${{ secrets.OKTETO_CONTEXT }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         prompt: |
           Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}
