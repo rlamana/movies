@@ -1,0 +1,29 @@
+name: Create Okteto Agent on Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  create-agent:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Create Okteto Agent
+      uses: rlamana/create-action@master
+      env:
+        OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
+        OKTETO_CONTEXT: ${{ secrets.OKTETO_CONTEXT }}
+      with:
+        prompt: |
+          Issue #${{ github.event.issue.number }}: ${{ github.event.issue.title }}
+          
+          ${{ github.event.issue.body }}
+          
+          Instructions: Commit the changes and send a pull request to GitHub with a proper title and description, referencing the original issue #${{ github.event.issue.number }}.
+        repository: ${{ github.event.repository.html_url }}
+        # branch: ${{ github.event.repository.default_branch }}
+        # comment-on-issue: 'true'
+        # issue-number: ${{ github.event.issue.number }}
+        # github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  
