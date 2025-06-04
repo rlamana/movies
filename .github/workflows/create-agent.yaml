@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Create Okteto Agent
-      uses: rlamana/create-action@master
+      uses: rlamana/create-action@main
       env:
         OKTETO_TOKEN: ${{ secrets.OKTETO_TOKEN }}
         OKTETO_CONTEXT: ${{ secrets.OKTETO_CONTEXT }}
